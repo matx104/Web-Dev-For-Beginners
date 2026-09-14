@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Dev 101 — Study Edition · QALAM</title>
+<meta name="description" content="A digested study edition — the petal template of the QALAM knowledge tree. Edit the OG tags below for your course.">
+<meta name="theme-color" content="#0B0F0E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="QALAM — القلم">
+<meta property="og:title" content="Web Dev 101 — Study Edition · QALAM">
+<meta property="og:description" content="Microsoft's Web Dev for Beginners, recovered by QALAM.">
+<meta property="og:image" content="https://matx104.github.io/Web-Dev-For-Beginners/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg">
+<style>
+/* ============================================================
+   Security 101 — Study Edition · a QALAM petal
+   Court palette: obsidian · dark emerald · gold. Vanilla CSS.
+   ============================================================ */
+
+:root {
+  --obsidian: #0B0F0E;
+  --panel: #111816;
+  --panel-raised: #16201D;
+  --emerald-deep: #14532D;
+  --emerald: #1B4332;
+  --emerald-bright: #2D6A4F;
+  --gold: #C9A227;
+  --gold-soft: #E4C25C;
+  --text: #E8F0EC;
+  --muted: #9CB0A8;
+  --line: rgba(45, 106, 79, 0.35);
+  --line-soft: rgba(45, 106, 79, 0.18);
+  --radius: 14px;
+  --pill: 999px;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(120% 70% at 50% -20%, rgba(27, 67, 50, 0.5), transparent 70%),
+    var(--obsidian);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell { width: 100%; max-width: 980px; margin-inline: auto; padding-inline: clamp(1rem, 4vw, 2rem); }
+header.hero, main, footer.foot { padding-inline: clamp(1rem, 4vw, 2rem); }
+header.hero, main { max-width: 980px; margin-inline: auto; }
+
+a { color: var(--gold-soft); }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- hero --------------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(2.5rem, 7vw, 4rem) 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.hero__eyebrow {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero__title {
+  margin: 0.6rem 0 0;
+  font-size: clamp(2.4rem, 8vw, 3.6rem);
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, var(--gold-soft), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero__sub { margin: 0.7rem 0 0; color: var(--muted); font-size: 1.05rem; }
+.hero__sub em { color: var(--text); font-style: normal; font-weight: 600; }
+
+.progress { margin: 1.8rem auto 0; max-width: 460px; text-align: left; }
+.progress__label { margin: 0 0 0.45rem; font-size: 0.88rem; color: var(--muted); }
+.progress__label strong { color: var(--gold-soft); font-variant-numeric: tabular-nums; }
+.progress__bar {
+  height: 10px;
+  border-radius: var(--pill);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.progress__fill {
+  height: 100%;
+  width: 0%;
+  border-radius: var(--pill);
+  background: linear-gradient(90deg, var(--emerald-bright), var(--gold));
+  transition: width 0.5s cubic-bezier(0.25, 0.8, 0.35, 1);
+}
+
+.hero__meta {
+  margin: 1.4rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+}
+.hero__meta a { color: var(--muted); text-decoration: none; }
+.hero__meta a:hover { color: var(--gold-soft); }
+
+/* ---------- creed + modules ---------------------------------------------- */
+
+.creed {
+  margin: 1.6rem 0 2rem;
+  padding: 1rem 1.2rem;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: linear-gradient(90deg, rgba(20, 83, 45, 0.25), transparent 75%);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.creed em { color: var(--text); font-style: normal; }
+
+.modules { display: flex; flex-direction: column; gap: 1rem; }
+
+.mod__h { margin: 0; }
+.mod__head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.95rem 1.15rem;
+  background: linear-gradient(160deg, var(--panel-raised), var(--panel) 60%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.mod__head:hover { border-color: var(--emerald-bright); }
+.mod--open .mod__head {
+  border-color: var(--gold);
+  box-shadow: 0 0 26px -10px rgba(201, 162, 39, 0.45);
+}
+.mod__num {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  background: rgba(201, 162, 39, 0.1);
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
+  padding: 0.18rem 0.6rem;
+}
+.mod__title { flex: 1; font-size: 1.02rem; }
+.mod__done { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.mod__done b { color: var(--gold-soft); font-weight: 600; }
+.mod__chev { color: var(--gold); transition: transform 0.35s ease; }
+.mod--open .mod__chev { transform: rotate(180deg); }
+
+.mod__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.5s cubic-bezier(0.25, 0.8, 0.35, 1), visibility 0s 0.5s;
+}
+.mod--open .mod__body {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.5s cubic-bezier(0.25, 0.8, 0.35, 1);
+}
+.mod__scroller { overflow: hidden; min-height: 0; }
+.mod__blurb { margin: 1rem 0.2rem 0.4rem; color: var(--muted); font-size: 0.92rem; }
+
+/* ---------- lessons -------------------------------------------------------- */
+
+.lesson {
+  margin-top: 0.7rem;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  background: var(--panel);
+  overflow: hidden;
+  transition: border-color 0.18s ease;
+}
+.lesson:hover { border-color: var(--emerald-bright); }
+.lesson--done { border-color: rgba(201, 162, 39, 0.45); }
+.lesson--quiz { background: linear-gradient(160deg, rgba(20, 83, 45, 0.35), var(--panel)); }
+
+.lesson__row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.lesson__check {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--emerald-bright);
+  background: var(--obsidian);
+  display: grid;
+  place-items: center;
+  color: transparent;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.lesson--done .lesson__check {
+  border-color: var(--gold);
+  background: rgba(201, 162, 39, 0.18);
+  color: var(--gold-soft);
+}
+.lesson__id {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  flex: none;
+  width: 2.4rem;
+}
+.lesson__name { flex: 1; font-weight: 600; line-height: 1.35; }
+.lesson__mins {
+  flex: none;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lesson__chev { color: var(--muted); font-size: 0.8rem; transition: transform 0.3s ease; }
+.lesson--open .lesson__chev { transform: rotate(90deg); color: var(--gold); }
+
+.lesson__detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.4s ease, visibility 0s 0.4s;
+}
+.lesson--open .lesson__detail {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.4s ease;
+}
+.lesson__inner { overflow: hidden; min-height: 0; }
+.lesson__pad { padding: 0 1rem 1rem 5rem; }
+.lesson__objective { margin: 0 0 0.6rem; color: var(--muted); font-size: 0.92rem; }
+.lesson__objective::before {
+  content: "Objective — ";
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.keys { list-style: none; margin: 0 0 0.8rem; padding: 0; display: grid; gap: 0.45rem; }
+.keys li {
+  position: relative;
+  padding: 0.5rem 0.75rem 0.5rem 1.9rem;
+  background: var(--panel-raised);
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+.keys li::before { content: "✒"; position: absolute; left: 0.7rem; color: var(--gold); }
+.lesson__read {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--gold);
+  border-radius: var(--pill);
+  background: rgba(201, 162, 39, 0.08);
+  color: var(--gold-soft);
+  text-decoration: none;
+  font-size: 0.84rem;
+  transition: background 0.15s ease;
+}
+.lesson__read:hover { background: rgba(201, 162, 39, 0.16); }
+
+.notice {
+  margin: 1.5rem 0 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--panel);
+  color: var(--muted);
+}
+
+/* ---------- after + footer -------------------------------------------------- */
+
+.after {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: radial-gradient(120% 140% at 0% 0%, rgba(20, 83, 45, 0.4), transparent 60%), var(--panel);
+}
+.after h2 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+.after p { margin: 0; color: var(--muted); }
+
+.foot {
+  margin-top: 3rem;
+  padding-block: 2.25rem 2.75rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.foot__motto { margin: 0; }
+.foot__motto strong { color: var(--gold); letter-spacing: 0.04em; }
+.foot__sub { margin: 0.6rem 0 0; color: var(--muted); font-size: 0.85rem; line-height: 1.7; }
+.foot__links { margin: 1rem 0 0; }
+.reset {
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.reset:hover { color: var(--gold-soft); border-color: var(--gold); }
+
+@media (max-width: 560px) {
+  .lesson__pad { padding-left: 1rem; }
+  .lesson__mins { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* ---------- print: the study sheet ------------------------------------------- */
+
+@media print {
+  body { background: #fff; color: #111; }
+  .hero { border: 0; }
+  .hero__title { color: #6b5410; -webkit-text-fill-color: #6b5410; background: none; }
+  .hero__sub, .creed, .hero__meta, .foot__links, .lesson__chev, .lesson__read { color: #333; }
+  .mod__head { background: #fff; border-color: #999; cursor: default; }
+  .mod__body, .lesson__detail { grid-template-rows: 1fr !important; visibility: visible !important; }
+  .mod__scroller, .lesson__inner { overflow: visible; }
+  .lesson, .keys li { background: #fff; border-color: #bbb; }
+  .keys li::before { color: #000; }
+  .lesson__check { border-color: #000; color: transparent; }
+  .lesson--done .lesson__check { color: #000; }
+  .lesson, .keys li { break-inside: avoid; }
+}
+
+</style>
+</head>
+<body>
+<p style="text-align:center;margin:0;padding:.6rem 1rem;border-bottom:1px solid rgba(45,106,79,.35);font:600 .78rem/1.4 ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:#9CB0A8;">Offline edition · saved from the living library · the online copy always knows more</p>
+
+<header class="hero">
+  <p class="hero__eyebrow" id="hero-eyebrow">QALAM presents · a digested study edition</p>
+  <h1 class="hero__title" id="hero-title">Course Title</h1>
+  <p class="hero__sub" id="hero-sub">The original course — recovered, compressed, free.</p>
+
+  <div class="progress" id="progress">
+    <p class="progress__label"><strong id="progress-pct">0%</strong> inscribed · <span id="progress-count">0 of 0 lessons</span></p>
+    <div class="progress__bar" role="progressbar" aria-labelledby="progress-pct" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+      <div class="progress__fill" id="progress-fill"></div>
+    </div>
+  </div>
+
+  <nav class="hero__meta" aria-label="About this edition">
+    <a id="meta-source" href="#" target="_blank" rel="noopener noreferrer">🏛️ original</a>
+    <a id="meta-fork" href="https://github.com/matx104/QALAM" target="_blank" rel="noopener noreferrer">🍴 this fork</a>
+    <a href="https://matx104.github.io/QALAM/" target="_blank" rel="noopener noreferrer">🖊️ the QALAM tree</a>
+  </nav>
+</header>
+
+<main>
+  <p class="creed"><span id="credit-line">Curriculum © its author · its license · digested with credit, shared free.</span>
+  Your progress is stored in <em>your</em> browser, nowhere else.</p>
+
+  <div id="modules" class="modules"></div>
+  <p class="notice" id="notice" hidden></p>
+
+  <section class="after" id="after" hidden>
+    <h2>After the course</h2>
+    <p></p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="foot__motto"><strong>Study Edition</strong> · a petal of <a href="https://matx104.github.io/QALAM/" target="_blank" rel="noopener noreferrer">QALAM</a></p>
+  <p class="foot__sub">Digested with credit, shared free.<br>Knowledge shared is knowledge multiplied.</p>
+  <p class="foot__links"><a class="reset" href="offline.html" style="text-decoration:none;display:inline-block;">⬇ Save this petal — offline copy</a> &nbsp; <button type="button" class="reset" id="reset">Reset my progress</button></p>
+</footer>
+
+<script>window.__COURSE__ = {"course": {"title": "Web Dev for Beginners", "eyebrow": "QALAM presents · Microsoft's curriculum, digested", "subtitle": "HTML, CSS and JavaScript learned by building real things — terrariums, games and banks.", "source_name": "Microsoft (Web Dev for Beginners)", "source_url": "https://github.com/microsoft/Web-Dev-For-Beginners", "fork_url": "https://github.com/matx104/Web-Dev-For-Beginners", "credit_line": "Curriculum © Microsoft · MIT License · digested with credit, shared free.", "after_title": "After the course", "after_note": "Build your own project — a portfolio page is the classic next move. The tree's JavaScript, GenAI and Copilot tracks continue from here.", "og_url": "https://matx104.github.io/Web-Dev-For-Beginners/", "og_image": "img/og.png"}, "modules": [{"id": "m1", "num": 1, "title": "Getting started", "blurb": "The tools of the trade, working like a team, and building for everyone.", "lessons": [{"id": "1.1", "title": "Intro to programming languages and tools of the trade", "objective": "What programming languages are, and the software professionals use.", "minutes": 40, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/1-getting-started-lessons/1-intro-to-programming-languages/README.md", "keys": ["A language is a contract between you and the machine — the tools just enforce it", "The professional kit: editor (VS Code), browser dev tools, terminal, git", "Learn concepts, not syntax — syntax is searchable, concepts compound"]}, {"id": "1.2", "title": "Intro to GitHub — working with a team", "objective": "Collaborate on a code base with branches and pull requests.", "minutes": 40, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/1-getting-started-lessons/2-github-basics/README.md", "keys": ["clone → branch → commit → PR → review → merge: the team loop", "A commit message is a note to your future teammates — and future you", "The PR is where code review lives; small PRs get good reviews"]}, {"id": "1.3", "title": "Accessibility fundamentals", "objective": "The basics of building web pages everyone can use.", "minutes": 40, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/1-getting-started-lessons/3-accessibility/README.md", "keys": ["Accessibility is engineering, not charity — 1 in 5 users depends on it", "Semantic HTML is the biggest a11y win: headers, buttons, labels", "Keyboard-first test: unplug the mouse; if it fails, users are locked out"]}]}, {"id": "m2", "num": 2, "title": "JavaScript basics", "blurb": "Types, functions, decisions, loops — the grammar of every interactive page.", "lessons": [{"id": "2.1", "title": "Data types", "objective": "The basics of JavaScript data types.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/2-js-basics/1-data-types/README.md", "keys": ["Primitives: string, number, boolean, null, undefined, symbol, bigint", "const by default, let when reassigned — var is legacy", "typeof tells you what you have; === compares what you mean"]}, {"id": "2.2", "title": "Functions and methods", "objective": "Managing an application's logic flow.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/2-js-basics/2-functions-methods/README.md", "keys": ["A function is a named, reusable decision — inputs in, value out", "Arrow functions: (a, b) => a + b — shorter scope, same idea", "Methods are functions that belong to something (array.map, string.trim)"]}, {"id": "2.3", "title": "Making decisions with JS", "objective": "Conditions and logic branching.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/2-js-basics/3-making-decisions/README.md", "keys": ["if / else if / else — the traffic lights of logic", "Ternary for tiny choices: cond ? a : b; switch for many matches", "Truthy/falsy: 0, '', null, undefined, NaN are false — memorize the five"]}, {"id": "2.4", "title": "Arrays and loops", "objective": "Working with collections of data.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/2-js-basics/4-arrays-loops/README.md", "keys": ["Arrays are ordered lists; index starts at 0", "for, for...of, while — and map/filter as the loop with a purpose", "push/pop at the end, shift/unshift at the head — know your costs"]}]}, {"id": "m3", "num": 3, "title": "Project — the terrarium", "blurb": "HTML in practice, CSS in practice, and a drag-and-drop interface with the DOM.", "lessons": [{"id": "3.1", "title": "Introduction to HTML", "objective": "Build the layout of an online terrarium.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/3-terrarium/1-intro-to-html/README.md", "keys": ["HTML is structure, not styling — elements describe meaning", "div and span are the anonymous boxes; prefer named elements first", "The terrarium: a positioned playground for the next two lessons"]}, {"id": "3.2", "title": "Introduction to CSS", "objective": "Style the terrarium, including responsiveness.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/3-terrarium/2-intro-to-css/README.md", "keys": ["The cascade: specificity decides which rule wins — id > class > element", "Flexbox for one-axis layouts, grid for two", "Position (relative/absolute) is how plants float over the terrarium glass"]}, {"id": "3.3", "title": "JavaScript closures and DOM manipulation", "objective": "Drag-and-drop with closures and the DOM.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/3-terrarium/3-intro-to-DOM-and-closures/README.md", "keys": ["The DOM: the page as a tree JavaScript can rewrite", "A closure is a function that remembers where it was born", "pointer events + closures = drag-and-drop in vanilla JS"]}]}, {"id": "m4", "num": 4, "title": "Project — the typing game", "blurb": "Event-driven programming: the keyboard becomes the controller.", "lessons": [{"id": "4.1", "title": "Event-driven programming — build a typing game", "objective": "Use keyboard events to drive app logic.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/4-typing-game/typing-game/README.md", "keys": ["Events are the browser telling your code something happened", "addEventListener wires reaction to event — don't poll, listen", "Game state lives in variables; the DOM just displays the state"]}]}, {"id": "m5", "num": 5, "title": "Project — the browser extension", "blurb": "How browsers work, forms, APIs, local storage, background tasks.", "lessons": [{"id": "5.1", "title": "About browsers", "objective": "How browsers work, and scaffolding an extension.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/5-browser-extension/1-about-browsers/README.md", "keys": ["The browser: engine + renderer + JS runtime + storage, bundled", "An extension is a webpage with permissions — manifest.json is its passport", "Extensions prove the web platform is programmable end to end"]}, {"id": "5.2", "title": "APIs, forms and local storage", "objective": "Call an API from a form and persist variables.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/5-browser-extension/2-forms-browsers-local-storage/README.md", "keys": ["fetch: ask a server, await the answer, handle the failure", "Forms collect; validation (client + server) protects", "localStorage persists strings per-origin — settings survive reloads"]}, {"id": "5.3", "title": "Background tasks and performance", "objective": "Background processes and web performance.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/5-browser-extension/3-background-tasks-and-performance/README.md", "keys": ["Service workers run behind the page — even when it's closed", "Performance budget: every KB is someone's data plan", "Measure first (dev tools), optimize second, assume never"]}]}, {"id": "m6", "num": 6, "title": "Project — the space game", "blurb": "Advanced game development: classes, canvas, motion, collision, score, endings.", "lessons": [{"id": "6.1", "title": "Advanced game development — inheritance and pub/sub", "objective": "Classes, composition and the pub/sub pattern.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/1-introduction/README.md", "keys": ["Classes template objects; inheritance shares behavior, composition delegates it", "Pub/sub decouples: emitters don't know listeners exist", "Game loop: update state → render → repeat, ~60 times a second"]}, {"id": "6.2", "title": "Drawing to canvas", "objective": "The Canvas API.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/2-drawing-to-canvas/README.md", "keys": ["Canvas is a pixel canvas: draw, clear, redraw — every frame", "Screen coordinates: x grows right, y grows down", "Images are sprites: load once, blit many"]}, {"id": "6.3", "title": "Moving elements around the screen", "objective": "Motion with cartesian coordinates.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/3-moving-elements-around/README.md", "keys": ["Motion = position + velocity × delta time", "Deltas not absolutes: frame rates differ, physics shouldn't care", "Edges collide first: clamp positions to the canvas bounds"]}, {"id": "6.4", "title": "Collision detection", "objective": "Make elements collide and react.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/4-collision-detection/README.md", "keys": ["Axis-aligned boxes: overlap on both axes = collision", "Cooldown timers stop one hit from registering ten times", "Collide → respond: damage, destroy, or bounce — decide in one place"]}, {"id": "6.5", "title": "Keeping score", "objective": "Math on game state, and performance.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/5-keeping-score/README.md", "keys": ["Score is state with an audience — update logic, then the DOM", "Live score = constant mutation; constant mutation = constant care", "Performance: touch the DOM in batches, not per particle"]}, {"id": "6.6", "title": "Ending and restarting the game", "objective": "End conditions and clean restarts.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/6-end-condition/README.md", "keys": ["The end condition is a state like any other — won, lost, or paused", "Restart = reset every variable, clear every timer, redraw the world", "Games teach state machines; state machines run the world"]}]}, {"id": "m7", "num": 7, "title": "Project — the banking app", "blurb": "A multipage app: routes, forms and validation, data flow, state management.", "lessons": [{"id": "7.1", "title": "HTML templates and routes in a web app", "objective": "Scaffold a multipage app with routing.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/7-bank-project/1-template-route/README.md", "keys": ["SPA routing: one HTML file, many views, hash or history API", "Templates: write layout once, fill per page", "Route = state; every route should be linkable"]}, {"id": "7.2", "title": "Build a login and registration form", "objective": "Forms and validation routines.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/7-bank-project/2-forms/README.md", "keys": ["Never trust client validation alone — the server re-checks everything", "Password rules belong server-side; the client just previews them", "Validation UX: precise messages, at the field, as you type"]}, {"id": "7.3", "title": "Methods of fetching and using data", "objective": "Data in, data out: fetch, store, dispose.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/7-bank-project/3-data/README.md", "keys": ["fetch + await + try/catch — the holy trinity of data fetching", "Every request fails eventually: design the failure UI first", "Dispose what you fetch — memory leaks are silent until they aren't"]}, {"id": "7.4", "title": "Concepts of state management", "objective": "Retain and manage app state.", "minutes": 45, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/7-bank-project/4-state-management/README.md", "keys": ["State is the single truth; the UI is its projection", "One-way data flow: events change state, state renders view", "Global ≠ evil; untracked global IS — centralize and name it"]}]}, {"id": "m8", "num": 8, "title": "Extras — the editor and the AI assistant", "blurb": "Using VS Code like a professional, and building your own AI chat project.", "lessons": [{"id": "8.1", "title": "Use VS Code like a pro", "objective": "A code editor as a power tool.", "minutes": 30, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/8-code-editor/1-using-a-code-editor/README.md", "keys": ["Command palette (Ctrl/Cmd-P) is the editor's keyboard", "Extensions multiply the editor; settings sync keeps them yours", "Integrated terminal + git panel = the workflow, undivided"]}, {"id": "8.2", "title": "Build your own AI assistant", "objective": "A first AI chat project in the browser.", "minutes": 60, "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/9-chat-project/README.md", "keys": ["A chat UI is: history, input, and streaming answers", "The system prompt sets the assistant's character and rules", "Everything you built — state, fetch, events — is what AI apps are made of"]}]}]};</script>
+<script type="module">
+/* ============================================================
+   THE PETAL TEMPLATE — one course, digested, tracked, free.
+   Fill content/course.json · enable Pages · ship.
+
+   Vanilla ES modules. Zero dependencies. Content-as-data:
+   nothing about the course is hardcoded here — the JSON is
+   the course, this file is the printing press.
+   ============================================================ */
+
+const dom = {
+  eyebrow:   document.getElementById('hero-eyebrow'),
+  title:     document.getElementById('hero-title'),
+  sub:       document.getElementById('hero-sub'),
+  metaSource:document.getElementById('meta-source'),
+  metaFork:  document.getElementById('meta-fork'),
+  credit:    document.getElementById('credit-line'),
+  afterBox:  document.getElementById('after'),
+  modules:   document.getElementById('modules'),
+  notice:    document.getElementById('notice'),
+  pct:       document.getElementById('progress-pct'),
+  count:     document.getElementById('progress-count'),
+  bar:       document.getElementById('progress-bar'),
+  fill:      document.getElementById('progress-fill'),
+  reset:     document.getElementById('reset')
+};
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text !== undefined && text !== null) node.textContent = String(text);
+  return node;
+}
+
+function safeUrl(value) {
+  if (typeof value !== 'string' || value === '') return null;
+  try {
+    const url = new URL(value, window.location.href);
+    return (url.protocol === 'https:' || url.protocol === 'http:') ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+/* ---------- mastery, kept by the learner ---------------------------------- */
+
+let STORE_KEY = 'qalam-petal';
+
+function loadProgress() {
+  try {
+    const raw = JSON.parse(window.localStorage.getItem(STORE_KEY) || '{}');
+    return (raw && typeof raw === 'object') ? raw : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveProgress(done) {
+  try {
+    window.localStorage.setItem(STORE_KEY, JSON.stringify(done));
+  } catch {
+    /* private mode — progress lives for this visit only */
+  }
+}
+
+let done = {};
+let APP = null;
+
+/* ---------- rendering ------------------------------------------------------- */
+
+let openModule = null;
+let openLesson = null;
+
+function allLessons() {
+  return APP.modules.flatMap((m) => m.lessons);
+}
+
+function renderProgress() {
+  const lessons = allLessons();
+  const complete = lessons.filter((l) => done[l.id]).length;
+  const pct = lessons.length ? Math.round((complete / lessons.length) * 100) : 0;
+  dom.pct.textContent = `${pct}%`;
+  dom.count.textContent = `${complete} of ${lessons.length} lessons`;
+  dom.fill.style.width = `${pct}%`;
+  dom.bar.setAttribute('aria-valuenow', String(pct));
+}
+
+function toggleLesson(id) {
+  openLesson = openLesson === id ? null : id;
+  for (const lesson of dom.modules.querySelectorAll('.lesson')) {
+    lesson.classList.toggle('lesson--open', lesson.dataset.lesson === openLesson);
+  }
+}
+
+function toggleModule(id) {
+  openModule = openModule === id ? null : id;
+  for (const mod of dom.modules.querySelectorAll('.mod')) {
+    mod.classList.toggle('mod--open', mod.dataset.module === openModule);
+  }
+}
+
+function buildLesson(lesson) {
+  const isDone = Boolean(done[lesson.id]);
+  const node = el('article', 'lesson' +
+    (isDone ? ' lesson--done' : '') +
+    (lesson.quiz ? ' lesson--quiz' : ''));
+  node.dataset.lesson = lesson.id;
+
+  const row = el('button', 'lesson__row');
+  row.type = 'button';
+  row.setAttribute('aria-expanded', 'false');
+  row.style.position = 'relative';
+
+  const check = el('span', 'lesson__check', '✓');
+  check.setAttribute('aria-hidden', 'true');
+
+  row.append(
+    check,
+    el('span', 'lesson__id', lesson.id),
+    el('span', 'lesson__name', lesson.title),
+    el('span', 'lesson__mins', lesson.quiz ? 'quiz' : `~${lesson.minutes || 30} min`),
+    el('span', 'lesson__chev', '▸')
+  );
+  row.addEventListener('click', () => toggleLesson(lesson.id));
+
+  /* the invisible check overlay: mark done without opening */
+  const checkButton = el('button');
+  checkButton.type = 'button';
+  checkButton.setAttribute('aria-pressed', String(isDone));
+  checkButton.setAttribute('aria-label',
+    `Mark “${lesson.title}” as ${isDone ? 'not done' : 'done'}`);
+  checkButton.style.cssText =
+    'position:absolute;left:1rem;margin-top:0.55rem;width:1.5rem;height:1.5rem;' +
+    'opacity:0;cursor:pointer;';
+  checkButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    if (done[lesson.id]) delete done[lesson.id];
+    else done[lesson.id] = true;
+    saveProgress(done);
+    node.classList.toggle('lesson--done', Boolean(done[lesson.id]));
+    checkButton.setAttribute('aria-pressed', String(Boolean(done[lesson.id])));
+    refresh();
+  });
+  row.append(checkButton);
+
+  const detail = el('div', 'lesson__detail');
+  const inner = el('div', 'lesson__inner');
+  const pad = el('div', 'lesson__pad');
+
+  if (lesson.objective) pad.append(el('p', 'lesson__objective', lesson.objective));
+
+  if (Array.isArray(lesson.keys) && lesson.keys.length) {
+    const keys = el('ul', 'keys');
+    for (const key of lesson.keys) keys.append(el('li', null, key));
+    pad.append(keys);
+  }
+
+  const href = safeUrl(lesson.href);
+  if (href) {
+    const read = el('a', 'lesson__read');
+    read.href = href;
+    read.target = '_blank';
+    read.rel = 'noopener noreferrer';
+    read.append(el('span', null, lesson.quiz ? 'Take the quiz' : 'Read the full lesson'),
+                el('span', null, ' ↗'));
+    pad.append(read);
+  }
+
+  inner.append(pad);
+  detail.append(inner);
+  node.append(row, detail);
+  return node;
+}
+
+function renderModules() {
+  dom.modules.textContent = '';
+
+  for (const mod of APP.modules) {
+    const section = el('section', 'mod');
+    section.dataset.module = mod.id;
+
+    const heading = el('h2', 'mod__h');
+    const head = el('button', 'mod__head');
+    head.type = 'button';
+    head.setAttribute('aria-expanded', 'false');
+    head.setAttribute('aria-controls', `mod-${mod.id}`);
+    head.append(
+      el('span', 'mod__num', `Module ${mod.num}`),
+      el('span', 'mod__title', mod.title),
+      el('span', 'mod__done'),
+      el('span', 'mod__chev', '▾')
+    );
+    head.addEventListener('click', () => toggleModule(mod.id));
+
+    const body = el('div', 'mod__body');
+    body.id = `mod-${mod.id}`;
+    body.setAttribute('role', 'region');
+
+    const scroller = el('div', 'mod__scroller');
+    if (mod.blurb) scroller.append(el('p', 'mod__blurb', mod.blurb));
+    for (const lesson of mod.lessons) scroller.append(buildLesson(lesson));
+
+    body.append(scroller);
+    heading.append(head);
+    section.append(heading, body);
+    dom.modules.append(section);
+  }
+}
+
+function refresh() {
+  if (!APP) return;
+  renderProgress();
+  for (const mod of dom.modules.querySelectorAll('.mod')) {
+    const meta = APP.modules.find((m) => m.id === mod.dataset.module);
+    const complete = meta.lessons.filter((l) => done[l.id]).length;
+    const label = mod.querySelector('.mod__done');
+    label.textContent = '';
+    label.append(el('b', null, complete), document.createTextNode(`/${meta.lessons.length}`));
+  }
+}
+
+/* ---------- identity, straight from the JSON -------------------------------- */
+
+function renderIdentity(course) {
+  if (course.title) {
+    document.title = `${course.title} · Study Edition · QALAM`;
+    if (dom.title) dom.title.textContent = course.title;
+  }
+  if (dom.eyebrow && course.eyebrow) dom.eyebrow.textContent = course.eyebrow;
+  if (dom.sub && course.subtitle) dom.sub.textContent = course.subtitle;
+  if (dom.metaSource && course.source_name) {
+    dom.metaSource.textContent = `🏛️ original: ${course.source_name}`;
+    dom.metaSource.href = safeUrl(course.source_url) || '#';
+  }
+  if (dom.metaFork && course.fork_url) {
+    dom.metaFork.href = safeUrl(course.fork_url) || '#';
+  }
+  if (dom.credit && course.credit_line) dom.credit.textContent = course.credit_line;
+
+  if (dom.afterBox && (course.after_note || course.after_links)) {
+    dom.afterBox.hidden = false;
+    const h2 = dom.afterBox.querySelector('h2');
+    if (h2 && course.after_title) h2.textContent = course.after_title;
+    const p = dom.afterBox.querySelector('p');
+    if (p) p.textContent = course.after_note || '';
+    if (Array.isArray(course.after_links) && course.after_links.length) {
+      const row = el('p'); row.style.marginTop = '0.8rem';
+      for (const link of course.after_links) {
+        const href = safeUrl(link.url);
+        if (!href) continue;
+        const a = el('a', null, link.label || link.url);
+        a.href = href;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        row.append(a, document.createTextNode('  '));
+      }
+      dom.afterBox.append(row);
+    }
+  } else if (dom.afterBox) {
+    dom.afterBox.hidden = true;
+  }
+}
+
+/* ---------- boot ---------------------------------------------------------------- */
+
+async function boot() {
+  if (dom.reset) {
+    dom.reset.addEventListener('click', () => {
+      done = {};
+      saveProgress(done);
+      renderModules();
+      refresh();
+    });
+  }
+
+  try {
+    const data = (window.__COURSE__ && typeof window.__COURSE__ === 'object')
+      ? window.__COURSE__
+      : await (async () => {
+          const res = await fetch('content/course.json', { cache: 'no-cache' });
+          if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+          return res.json();
+        })();
+    APP = data;
+
+    STORE_KEY = `qalam-petal-${(data.course && data.course.title || 'petal')
+      .toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40)}`;
+    done = loadProgress();
+
+    renderIdentity(data.course || {});
+    renderModules();
+    refresh();
+  } catch (error) {
+    console.error('Petal: could not load the course —', error);
+    dom.notice.textContent =
+      `The course could not be loaded from content/course.json: ${error.message}. ` +
+      'Fill the JSON per the README, and the page grows from it.';
+    dom.notice.hidden = false;
+  }
+}
+
+boot();
+
+</script>
+<noscript>
+  <p class="notice">This study edition renders from <code>content/course.json</code> and needs JavaScript.</p>
+</noscript>
+
+</body>
+</html>

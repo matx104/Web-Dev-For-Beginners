@@ -1,0 +1,143 @@
+{
+  "course": {
+    "title": "Web Dev for Beginners",
+    "eyebrow": "QALAM presents · Microsoft's curriculum, digested",
+    "subtitle": "HTML, CSS and JavaScript learned by building real things — terrariums, games and banks.",
+    "source_name": "Microsoft (Web Dev for Beginners)",
+    "source_url": "https://github.com/microsoft/Web-Dev-For-Beginners",
+    "fork_url": "https://github.com/matx104/Web-Dev-For-Beginners",
+    "credit_line": "Curriculum © Microsoft · MIT License · digested with credit, shared free.",
+    "after_title": "After the course",
+    "after_note": "Build your own project — a portfolio page is the classic next move. The tree's JavaScript, GenAI and Copilot tracks continue from here.",
+    "og_url": "https://matx104.github.io/Web-Dev-For-Beginners/",
+    "og_image": "img/og.png"
+  },
+  "modules": [
+    {
+      "id": "m1", "num": 1, "title": "Getting started",
+      "blurb": "The tools of the trade, working like a team, and building for everyone.",
+      "lessons": [
+        {"id": "1.1", "title": "Intro to programming languages and tools of the trade", "objective": "What programming languages are, and the software professionals use.", "minutes": 40,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/1-getting-started-lessons/1-intro-to-programming-languages/README.md",
+         "keys": ["A language is a contract between you and the machine — the tools just enforce it", "The professional kit: editor (VS Code), browser dev tools, terminal, git", "Learn concepts, not syntax — syntax is searchable, concepts compound"]},
+        {"id": "1.2", "title": "Intro to GitHub — working with a team", "objective": "Collaborate on a code base with branches and pull requests.", "minutes": 40,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/1-getting-started-lessons/2-github-basics/README.md",
+         "keys": ["clone → branch → commit → PR → review → merge: the team loop", "A commit message is a note to your future teammates — and future you", "The PR is where code review lives; small PRs get good reviews"]},
+        {"id": "1.3", "title": "Accessibility fundamentals", "objective": "The basics of building web pages everyone can use.", "minutes": 40,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/1-getting-started-lessons/3-accessibility/README.md",
+         "keys": ["Accessibility is engineering, not charity — 1 in 5 users depends on it", "Semantic HTML is the biggest a11y win: headers, buttons, labels", "Keyboard-first test: unplug the mouse; if it fails, users are locked out"]}
+      ]
+    },
+    {
+      "id": "m2", "num": 2, "title": "JavaScript basics",
+      "blurb": "Types, functions, decisions, loops — the grammar of every interactive page.",
+      "lessons": [
+        {"id": "2.1", "title": "Data types", "objective": "The basics of JavaScript data types.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/2-js-basics/1-data-types/README.md",
+         "keys": ["Primitives: string, number, boolean, null, undefined, symbol, bigint", "const by default, let when reassigned — var is legacy", "typeof tells you what you have; === compares what you mean"]},
+        {"id": "2.2", "title": "Functions and methods", "objective": "Managing an application's logic flow.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/2-js-basics/2-functions-methods/README.md",
+         "keys": ["A function is a named, reusable decision — inputs in, value out", "Arrow functions: (a, b) => a + b — shorter scope, same idea", "Methods are functions that belong to something (array.map, string.trim)"]},
+        {"id": "2.3", "title": "Making decisions with JS", "objective": "Conditions and logic branching.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/2-js-basics/3-making-decisions/README.md",
+         "keys": ["if / else if / else — the traffic lights of logic", "Ternary for tiny choices: cond ? a : b; switch for many matches", "Truthy/falsy: 0, '', null, undefined, NaN are false — memorize the five"]},
+        {"id": "2.4", "title": "Arrays and loops", "objective": "Working with collections of data.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/2-js-basics/4-arrays-loops/README.md",
+         "keys": ["Arrays are ordered lists; index starts at 0", "for, for...of, while — and map/filter as the loop with a purpose", "push/pop at the end, shift/unshift at the head — know your costs"]}
+      ]
+    },
+    {
+      "id": "m3", "num": 3, "title": "Project — the terrarium",
+      "blurb": "HTML in practice, CSS in practice, and a drag-and-drop interface with the DOM.",
+      "lessons": [
+        {"id": "3.1", "title": "Introduction to HTML", "objective": "Build the layout of an online terrarium.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/3-terrarium/1-intro-to-html/README.md",
+         "keys": ["HTML is structure, not styling — elements describe meaning", "div and span are the anonymous boxes; prefer named elements first", "The terrarium: a positioned playground for the next two lessons"]},
+        {"id": "3.2", "title": "Introduction to CSS", "objective": "Style the terrarium, including responsiveness.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/3-terrarium/2-intro-to-css/README.md",
+         "keys": ["The cascade: specificity decides which rule wins — id > class > element", "Flexbox for one-axis layouts, grid for two", "Position (relative/absolute) is how plants float over the terrarium glass"]},
+        {"id": "3.3", "title": "JavaScript closures and DOM manipulation", "objective": "Drag-and-drop with closures and the DOM.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/3-terrarium/3-intro-to-DOM-and-closures/README.md",
+         "keys": ["The DOM: the page as a tree JavaScript can rewrite", "A closure is a function that remembers where it was born", "pointer events + closures = drag-and-drop in vanilla JS"]}
+      ]
+    },
+    {
+      "id": "m4", "num": 4, "title": "Project — the typing game",
+      "blurb": "Event-driven programming: the keyboard becomes the controller.",
+      "lessons": [
+        {"id": "4.1", "title": "Event-driven programming — build a typing game", "objective": "Use keyboard events to drive app logic.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/4-typing-game/typing-game/README.md",
+         "keys": ["Events are the browser telling your code something happened", "addEventListener wires reaction to event — don't poll, listen", "Game state lives in variables; the DOM just displays the state"]}
+      ]
+    },
+    {
+      "id": "m5", "num": 5, "title": "Project — the browser extension",
+      "blurb": "How browsers work, forms, APIs, local storage, background tasks.",
+      "lessons": [
+        {"id": "5.1", "title": "About browsers", "objective": "How browsers work, and scaffolding an extension.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/5-browser-extension/1-about-browsers/README.md",
+         "keys": ["The browser: engine + renderer + JS runtime + storage, bundled", "An extension is a webpage with permissions — manifest.json is its passport", "Extensions prove the web platform is programmable end to end"]},
+        {"id": "5.2", "title": "APIs, forms and local storage", "objective": "Call an API from a form and persist variables.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/5-browser-extension/2-forms-browsers-local-storage/README.md",
+         "keys": ["fetch: ask a server, await the answer, handle the failure", "Forms collect; validation (client + server) protects", "localStorage persists strings per-origin — settings survive reloads"]},
+        {"id": "5.3", "title": "Background tasks and performance", "objective": "Background processes and web performance.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/5-browser-extension/3-background-tasks-and-performance/README.md",
+         "keys": ["Service workers run behind the page — even when it's closed", "Performance budget: every KB is someone's data plan", "Measure first (dev tools), optimize second, assume never"]}
+      ]
+    },
+    {
+      "id": "m6", "num": 6, "title": "Project — the space game",
+      "blurb": "Advanced game development: classes, canvas, motion, collision, score, endings.",
+      "lessons": [
+        {"id": "6.1", "title": "Advanced game development — inheritance and pub/sub", "objective": "Classes, composition and the pub/sub pattern.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/1-introduction/README.md",
+         "keys": ["Classes template objects; inheritance shares behavior, composition delegates it", "Pub/sub decouples: emitters don't know listeners exist", "Game loop: update state → render → repeat, ~60 times a second"]},
+        {"id": "6.2", "title": "Drawing to canvas", "objective": "The Canvas API.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/2-drawing-to-canvas/README.md",
+         "keys": ["Canvas is a pixel canvas: draw, clear, redraw — every frame", "Screen coordinates: x grows right, y grows down", "Images are sprites: load once, blit many"]},
+        {"id": "6.3", "title": "Moving elements around the screen", "objective": "Motion with cartesian coordinates.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/3-moving-elements-around/README.md",
+         "keys": ["Motion = position + velocity × delta time", "Deltas not absolutes: frame rates differ, physics shouldn't care", "Edges collide first: clamp positions to the canvas bounds"]},
+        {"id": "6.4", "title": "Collision detection", "objective": "Make elements collide and react.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/4-collision-detection/README.md",
+         "keys": ["Axis-aligned boxes: overlap on both axes = collision", "Cooldown timers stop one hit from registering ten times", "Collide → respond: damage, destroy, or bounce — decide in one place"]},
+        {"id": "6.5", "title": "Keeping score", "objective": "Math on game state, and performance.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/5-keeping-score/README.md",
+         "keys": ["Score is state with an audience — update logic, then the DOM", "Live score = constant mutation; constant mutation = constant care", "Performance: touch the DOM in batches, not per particle"]},
+        {"id": "6.6", "title": "Ending and restarting the game", "objective": "End conditions and clean restarts.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/6-space-game/6-end-condition/README.md",
+         "keys": ["The end condition is a state like any other — won, lost, or paused", "Restart = reset every variable, clear every timer, redraw the world", "Games teach state machines; state machines run the world"]}
+      ]
+    },
+    {
+      "id": "m7", "num": 7, "title": "Project — the banking app",
+      "blurb": "A multipage app: routes, forms and validation, data flow, state management.",
+      "lessons": [
+        {"id": "7.1", "title": "HTML templates and routes in a web app", "objective": "Scaffold a multipage app with routing.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/7-bank-project/1-template-route/README.md",
+         "keys": ["SPA routing: one HTML file, many views, hash or history API", "Templates: write layout once, fill per page", "Route = state; every route should be linkable"]},
+        {"id": "7.2", "title": "Build a login and registration form", "objective": "Forms and validation routines.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/7-bank-project/2-forms/README.md",
+         "keys": ["Never trust client validation alone — the server re-checks everything", "Password rules belong server-side; the client just previews them", "Validation UX: precise messages, at the field, as you type"]},
+        {"id": "7.3", "title": "Methods of fetching and using data", "objective": "Data in, data out: fetch, store, dispose.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/7-bank-project/3-data/README.md",
+         "keys": ["fetch + await + try/catch — the holy trinity of data fetching", "Every request fails eventually: design the failure UI first", "Dispose what you fetch — memory leaks are silent until they aren't"]},
+        {"id": "7.4", "title": "Concepts of state management", "objective": "Retain and manage app state.", "minutes": 45,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/7-bank-project/4-state-management/README.md",
+         "keys": ["State is the single truth; the UI is its projection", "One-way data flow: events change state, state renders view", "Global ≠ evil; untracked global IS — centralize and name it"]}
+      ]
+    },
+    {
+      "id": "m8", "num": 8, "title": "Extras — the editor and the AI assistant",
+      "blurb": "Using VS Code like a professional, and building your own AI chat project.",
+      "lessons": [
+        {"id": "8.1", "title": "Use VS Code like a pro", "objective": "A code editor as a power tool.", "minutes": 30,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/8-code-editor/1-using-a-code-editor/README.md",
+         "keys": ["Command palette (Ctrl/Cmd-P) is the editor's keyboard", "Extensions multiply the editor; settings sync keeps them yours", "Integrated terminal + git panel = the workflow, undivided"]},
+        {"id": "8.2", "title": "Build your own AI assistant", "objective": "A first AI chat project in the browser.", "minutes": 60,
+         "href": "https://github.com/matx104/Web-Dev-For-Beginners/blob/main/9-chat-project/README.md",
+         "keys": ["A chat UI is: history, input, and streaming answers", "The system prompt sets the assistant's character and rules", "Everything you built — state, fetch, events — is what AI apps are made of"]}
+      ]
+    }
+  ]
+}
